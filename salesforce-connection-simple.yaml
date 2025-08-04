@@ -1,0 +1,34 @@
+spec_version: v1
+kind: connection
+app_id: salesforce_simple_connection
+name: salesforce_simple_connection
+description: "Salesforce API connection with username/password authentication (for development)"
+environments:
+  draft:
+    connection_type: custom_auth
+    base_url: "https://{{SALESFORCE_INSTANCE}}.salesforce.com"
+    preference: team
+    security_scheme: custom_auth
+    auth:
+      type: custom
+      # Salesforce uses username/password/security_token for simple auth
+      username: "{{SALESFORCE_USERNAME}}"
+      password: "{{SALESFORCE_PASSWORD}}"
+      security_token: "{{SALESFORCE_SECURITY_TOKEN}}"
+      login_url: "https://{{SALESFORCE_INSTANCE}}.salesforce.com/services/Soap/u/58.0"
+    headers:
+      Content-Type: "application/json"
+      Accept: "application/json"
+      User-Agent: "Watson-x-Orchestrate/1.0"
+      Authorization: "Bearer {{ACCESS_TOKEN}}"
+    endpoints:
+      # Salesforce REST API endpoints
+      login: "/services/oauth2/token"
+      accounts: "/services/data/v58.0/sobjects/Account"
+      contacts: "/services/data/v58.0/sobjects/Contact"
+      opportunities: "/services/data/v58.0/sobjects/Opportunity"
+      leads: "/services/data/v58.0/sobjects/Lead"
+      cases: "/services/data/v58.0/sobjects/Case"
+      query: "/services/data/v58.0/query"
+      search: "/services/data/v58.0/search"
+      describe: "/services/data/v58.0/sobjects"
