@@ -65,7 +65,7 @@ adk-project/
 #### Add Environment
 ```bash
 # AWS (Your Setup)
-orchestrate env add -n myenv -u https://api.dl.watson-orchestrate.ibm.com/instances/20250801-2128-2130-7051-371843188eea --type mcsp --activate
+orchestrate env add -n myenv -u https://api.dl.watson-orchestrate.ibm.com/instances/YOUR-INSTANCE-ID --type mcsp --activate
 
 # IBM Cloud
 orchestrate env add -n <env-name> -u <service-url> --type ibm_iam --activate
@@ -99,7 +99,7 @@ orchestrate env remove -n <env-name>
 1. Log in to your Watson x Orchestrate instance
 2. Click user icon (top right) → **Settings**
 3. Go to **API details** tab
-4. Copy service instance URL: `https://api.dl.watson-orchestrate.ibm.com/instances/20250801-2128-2130-7051-371843188eea`
+4. Copy service instance URL: `https://api.dl.watson-orchestrate.ibm.com/instances/YOUR-INSTANCE-ID`
 5. Click **Generate API key** button
 6. Copy the generated API key (base64 encoded format)
 7. **Important**: API keys are not retrievable after creation - store safely!
@@ -107,7 +107,7 @@ orchestrate env remove -n <env-name>
 
 **Your API Key Format**: Base64 encoded string like:
 ```
-azE6dXNyX2M3ODMyNzgyLWRiY2EtMzNjYS04ZjQwLTkyNTJmYzBlYWMwMTp3TkVabjkzU3V3RzB4bTcvUHF3M3FzN1grbTN3b2xMcWNnU0pBdXMyN0FnPTo2bUZM
+your-base64-encoded-api-key-here
 ```
 
 #### IBM Cloud
@@ -138,8 +138,8 @@ pip install ibm-watsonx-orchestrate
 
 # 2. Add your AWS environment (with API key)
 
-orchestrate env add -n myenv -u https://api.dl.watson-orchestrate.ibm.com/instances/20250801-2128-2130-7051-371843188eea --type mcsp
-orchestrate env activate myenv --api-key azE6dXNyX2M3ODMyNzgyLWRiY2EtMzNjYS04ZjQwLTkyNTJmYzBlYWMwMTp3TkVabjkzU3V3RzB4bTcvUHF3M3FzN1grbTN3b2xMcWNnU0pBdXMyN0FnPTo2bUZM
+orchestrate env add -n myenv -u https://api.dl.watson-orchestrate.ibm.com/instances/YOUR-INSTANCE-ID --type mcsp
+orchestrate env activate myenv --api-key YOUR-API-KEY-HERE
 
 # 3. Verify authentication
 orchestrate agents list
@@ -154,15 +154,15 @@ orchestrate env list
 orchestrate env activate myenv
 
 # Or authenticate non-interactively
-orchestrate env activate myenv --api-key azE6dXNyX2M3ODMyNzgyLWRiY2EtMzNjYS04ZjQwLTkyNTJmYzBlYWMwMTp3TkVabjkzU3V3RzB4bTcvUHF3M3FzN1grbTN3b2xMcWNnU0pBdXMyN0FnPTo2bUZM
+orchestrate env activate myenv --api-key YOUR-API-KEY-HERE
 ```
 
 ### Script-Ready Commands (Exact from final_auto_get_all.sh)
 ```bash
 # Step 1: Add environment (without activation)
 ENV_NAME="watson-test01"
-SERVICE_URL="https://api.dl.watson-orchestrate.ibm.com/instances/20250801-2128-2130-7051-371843188eea"
-API_KEY="azE6dXNyX2M3ODMyNzgyLWRiY2EtMzNjYS04ZjQwLTkyNTJmYzBlYWMwMTp3TkVabjkzU3V3RzB4bTcvUHF3M3FzN1grbTN3b2xMcWNnU0pBdXMyN0FnPTo2bUZM"
+SERVICE_URL="https://api.dl.watson-orchestrate.ibm.com/instances/YOUR-INSTANCE-ID"
+API_KEY="YOUR-API-KEY-HERE"
 
 orchestrate env add -n "$ENV_NAME" -u "$SERVICE_URL" --type mcsp
 
