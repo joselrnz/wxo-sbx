@@ -1,0 +1,19 @@
+spec_version: v1
+kind: connection
+app_id: simple_api_connection
+name: simple_api_connection
+description: "Simple API connection with API key authentication"
+environments:
+  draft:
+    connection_type: api_key
+    base_url: "https://api.example.com"
+    preference: team
+    security_scheme: api_key_auth
+    auth:
+      type: api_key
+      api_key: "{{API_KEY}}"
+      location: header
+      key_name: "X-API-Key"
+    headers:
+      Content-Type: "application/json"
+      Accept: "application/json"

@@ -1,0 +1,18 @@
+spec_version: v1
+kind: connection
+app_id: slack_connection
+name: slack_connection
+description: "Slack API connection with bot token authentication"
+environments:
+  draft:
+    connection_type: bearer_token
+    base_url: "https://slack.com/api"
+    preference: team
+    security_scheme: bearer_token
+    auth:
+      type: bearer
+      token: "{{SLACK_BOT_TOKEN}}"
+    headers:
+      Content-Type: "application/json"
+      Accept: "application/json"
+      User-Agent: "Watson-x-Orchestrate/1.0"

@@ -1,0 +1,84 @@
+                                    Agents                                     
++-----------------------------------------------------------------------------+
+|         |         |         |         |         |        | Knowle… |        |
+| Name    | Descri… | LLM     | Style   | Collab… | Tools  | Base    | ID     |
+|---------+---------+---------+---------+---------+--------+---------+--------|
+| slack_m | An      | watsonx | default |         | send_… |         | dd3055 |
+| essage_ | agent   | /meta-l |         |         | get_a… |         | cb-6c6 |
+| agent_5 | to send | lama/ll |         |         |        |         | e-4c81 |
+| d573361 | message | ama-3-2 |         |         |        |         | -8b98- |
+|         | to a    | -90b-vi |         |         |        |         | 2b574c |
+|         | Slack   | sion-in |         |         |        |         | b667bf |
+|         | channel | struct  |         |         |        |         |        |
+|---------+---------+---------+---------+---------+--------+---------+--------|
+| slack_c | An      | watsonx | default |         | get_a… |         | 80299a |
+| hannel_ | agent   | /meta-l |         |         | get_a… |         | 73-a72 |
+| managem | to      | lama/ll |         |         |        |         | 9-494e |
+| ent_age | retrie… | ama-3-2 |         |         |        |         | -8f45- |
+| nt_5d57 | all     | -90b-vi |         |         |        |         | 73dff8 |
+| 3361    | Slack   | sion-in |         |         |        |         | cc4fa5 |
+|         | channe… | struct  |         |         |        |         |        |
+|---------+---------+---------+---------+---------+--------+---------+--------|
+| slack_m | Slack   | watsonx | default | slack_… |        |         | 2ccf3e |
+| anager_ | manager | /meta-l |         | slack_… |        |         | 99-26b |
+| 5d57336 | agent   | lama/ll |         |         |        |         | 4-49cd |
+| 1       | in      | ama-3-2 |         |         |        |         | -ae48- |
+|         | charge  | -90b-vi |         |         |        |         | ae6a33 |
+|         | of      | sion-in |         |         |        |         | f068b7 |
+|         | routing | struct  |         |         |        |         |        |
+|         | user    |         |         |         |        |         |        |
+|         | reques… |         |         |         |        |         |        |
+|         | to the  |         |         |         |        |         |        |
+|         | most    |         |         |         |        |         |        |
+|         | releva… |         |         |         |        |         |        |
+|         | agent   |         |         |         |        |         |        |
+|         | working |         |         |         |        |         |        |
+|         | under   |         |         |         |        |         |        |
+|         | it.     |         |         |         |        |         |        |
+|---------+---------+---------+---------+---------+--------+---------+--------|
+| slack_m | An      | watsonx | default |         | send_… |         | 56ba57 |
+| essage_ | agent   | /meta-l |         |         | get_a… |         | c6-325 |
+| agent_f | to send | lama/ll |         |         |        |         | b-4afa |
+| 4107910 | message | ama-3-2 |         |         |        |         | -b3db- |
+|         | to a    | -90b-vi |         |         |        |         | 7a483e |
+|         | Slack   | sion-in |         |         |        |         | f1abfd |
+|         | channel | struct  |         |         |        |         |        |
+|---------+---------+---------+---------+---------+--------+---------+--------|
+| slack_c | An      | watsonx | default |         | get_a… |         | 13af79 |
+| hannel_ | agent   | /meta-l |         |         | get_a… |         | 4b-07f |
+| managem | to      | lama/ll |         |         |        |         | 4-484c |
+| ent_age | retrie… | ama-3-2 |         |         |        |         | -b893- |
+| nt_f410 | all     | -90b-vi |         |         |        |         | 33f474 |
+| 7910    | Slack   | sion-in |         |         |        |         | 27a7fd |
+|         | channe… | struct  |         |         |        |         |        |
+|---------+---------+---------+---------+---------+--------+---------+--------|
+| slack_m | Slack   | watsonx | default | slack_… |        |         | b35b5e |
+| anager_ | manager | /meta-l |         | slack_… |        |         | ec-92d |
+| f410791 | agent   | lama/ll |         |         |        |         | 3-4384 |
+| 0       | in      | ama-3-2 |         |         |        |         | -9f66- |
+|         | charge  | -90b-vi |         |         |        |         | 2ee7a0 |
+|         | of      | sion-in |         |         |        |         | 032a06 |
+|         | routing | struct  |         |         |        |         |        |
+|         | user    |         |         |         |        |         |        |
+|         | reques… |         |         |         |        |         |        |
+|         | to the  |         |         |         |        |         |        |
+|         | most    |         |         |         |        |         |        |
+|         | releva… |         |         |         |        |         |        |
+|         | agent   |         |         |         |        |         |        |
+|         | working |         |         |         |        |         |        |
+|         | under   |         |         |         |        |         |        |
+|         | it.     |         |         |         |        |         |        |
++-----------------------------------------------------------------------------+
+                                External Agents                                
++-----------------------------------------------------------------------------+
+|      |       |        |      | API   | Chat   |       |        | App   |    |
+| Name | Title | Descr… | Tags | URL   | Params | Conf… | Nickn… | ID    | ID |
+|------+-------+--------+------+-------+--------+-------+--------+-------+----|
++-----------------------------------------------------------------------------+
+                               Assistant Agents                                
++-----------------------------------------------------------------------------+
+|      |       |        |      |        |     |        |        | Enviro |    |
+|      |       |        |      |        |     | Insta… | Assist | nment  |    |
+| Name | Title | Descr… | Tags | Nickn… | CRN | URL    | ant ID | ID     | ID |
+|------+-------+--------+------+--------+-----+--------+--------+--------+----|
++-----------------------------------------------------------------------------+

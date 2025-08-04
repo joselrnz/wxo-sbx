@@ -1,0 +1,19 @@
+spec_version: v1
+kind: connection
+app_id: servicenow_connection
+name: servicenow_connection
+description: "ServiceNow API connection with basic authentication"
+environments:
+  draft:
+    connection_type: basic_auth
+    base_url: "https://{{SERVICENOW_INSTANCE}}.service-now.com"
+    preference: team
+    security_scheme: basic_auth
+    auth:
+      type: basic
+      username: "{{SERVICENOW_USERNAME}}"
+      password: "{{SERVICENOW_PASSWORD}}"
+    headers:
+      Content-Type: "application/json"
+      Accept: "application/json"
+      User-Agent: "Watson-x-Orchestrate/1.0"

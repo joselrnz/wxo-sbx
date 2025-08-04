@@ -1,0 +1,29 @@
+Watson x Orchestrate - All Items Retrieved
+==========================================
+Generated: Sat, Aug  2, 2025 10:56:50 AM
+Instance: https://api.dl.watson-orchestrate.ibm.com/instances/20250801-2128-2130-7051-371843188eea
+Environment: watson-test01
+Output Directory: watson_all_items_20250802_105618
+
+Files Created:
+- agents.txt          (AI agents in your instance)
+- tools.txt           (Custom tools and integrations)
+- connections.txt     (API connections and credentials)
+- knowledge-bases.txt (Document knowledge bases)
+- flows.txt           (Workflow automations)
+- evaluations.txt     (Agent performance evaluations)
+- environments.txt    (Environment configurations)
+- summary.txt         (This summary file)
+
+Quick View Commands (Git Bash):
+cat watson_all_items_20250802_105618/agents.txt
+cat watson_all_items_20250802_105618/tools.txt
+cat watson_all_items_20250802_105618/connections.txt
+cat watson_all_items_20250802_105618/knowledge-bases.txt
+
+Quick View Commands (Windows):
+notepad watson_all_items_20250802_105618\agents.txt
+notepad watson_all_items_20250802_105618\tools.txt
+notepad watson_all_items_20250802_105618\connections.txt
+
+All files are saved as plain text and can be opened with any text editor.
