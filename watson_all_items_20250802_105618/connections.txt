@@ -1,5 +1,0 @@
-                                     Draft                                     
-+-----------------------------------------------------------------------------+
-|                App ID                | Auth T… | T… | Credentials Set/ Con… |
-|--------------------------------------+---------+----+-----------------------|
-|            slack_develop             | api_ke… | m… | UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 9: character maps to <undefined>
