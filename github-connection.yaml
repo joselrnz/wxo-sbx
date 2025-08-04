@@ -1,0 +1,31 @@
+spec_version: v1
+kind: connection
+app_id: github_connection
+name: github_connection
+description: "GitHub API connection for repository management and CI/CD"
+environments:
+  draft:
+    kind: bearer
+    type: team
+    sso: false
+    server_url: "https://api.github.com"
+    headers:
+      Content-Type: "application/json"
+      Accept: "application/vnd.github+json"
+      User-Agent: "Watson-x-Orchestrate/1.0"
+      X-GitHub-Api-Version: "2022-11-28"
+    auth:
+      type: bearer
+      token: "{{GITHUB_TOKEN}}"  # Personal Access Token or GitHub App token
+    endpoints:
+      # Common GitHub API endpoints
+      user: "/user"
+      repos: "/user/repos"
+      orgs: "/user/orgs"
+      issues: "/repos/{{OWNER}}/{{REPO}}/issues"
+      pulls: "/repos/{{OWNER}}/{{REPO}}/pulls"
+      commits: "/repos/{{OWNER}}/{{REPO}}/commits"
+      branches: "/repos/{{OWNER}}/{{REPO}}/branches"
+      releases: "/repos/{{OWNER}}/{{REPO}}/releases"
+      actions: "/repos/{{OWNER}}/{{REPO}}/actions/runs"
+      webhooks: "/repos/{{OWNER}}/{{REPO}}/hooks"

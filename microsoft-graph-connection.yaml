@@ -1,0 +1,41 @@
+spec_version: v1
+kind: connection
+app_id: microsoft_graph_connection
+name: microsoft_graph_connection
+description: "Microsoft Graph API connection for Office 365, Teams, SharePoint, etc."
+environments:
+  draft:
+    kind: oauth_auth_on_behalf_of_flow
+    type: member
+    sso: true
+    server_url: "https://graph.microsoft.com"
+    headers:
+      Content-Type: "application/json"
+      Accept: "application/json"
+      User-Agent: "Watson-x-Orchestrate/1.0"
+    # Microsoft Azure AD Identity Provider
+    idp_config:
+      header:
+        content-type: application/x-www-form-urlencoded
+      body:
+        requested_token_use: on_behalf_of
+        requested_token_type: urn:ietf:params:oauth:token-type:saml2
+        scope: "https://graph.microsoft.com/.default"
+        resource: "https://graph.microsoft.com"
+    # Microsoft Graph App Configuration
+    app_config:
+      header:
+        content-type: application/x-www-form-urlencoded
+      body:
+        grant_type: authorization_code
+        client_id: "{{MICROSOFT_CLIENT_ID}}"
+        client_secret: "{{MICROSOFT_CLIENT_SECRET}}"
+    endpoints:
+      # Common Microsoft Graph endpoints
+      users: "/v1.0/users"
+      me: "/v1.0/me"
+      mail: "/v1.0/me/messages"
+      calendar: "/v1.0/me/events"
+      teams: "/v1.0/me/joinedTeams"
+      sharepoint: "/v1.0/sites"
+      onedrive: "/v1.0/me/drive"

@@ -1,0 +1,30 @@
+spec_version: v1
+kind: connection
+app_id: jira_connection
+name: jira_connection
+description: "Atlassian Jira API connection for issue tracking and project management"
+environments:
+  draft:
+    kind: basic
+    type: team
+    sso: false
+    server_url: "https://{{JIRA_INSTANCE}}.atlassian.net"
+    headers:
+      Content-Type: "application/json"
+      Accept: "application/json"
+      User-Agent: "Watson-x-Orchestrate/1.0"
+    auth:
+      type: basic
+      username: "{{JIRA_EMAIL}}"
+      password: "{{JIRA_API_TOKEN}}"  # Use API token, not password
+    endpoints:
+      # Common Jira REST API endpoints
+      projects: "/rest/api/3/project"
+      issues: "/rest/api/3/issue"
+      search: "/rest/api/3/search"
+      users: "/rest/api/3/users/search"
+      priorities: "/rest/api/3/priority"
+      statuses: "/rest/api/3/status"
+      issue_types: "/rest/api/3/issuetype"
+      components: "/rest/api/3/project/{{PROJECT_KEY}}/components"
+      versions: "/rest/api/3/project/{{PROJECT_KEY}}/versions"
