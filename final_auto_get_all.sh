@@ -2,15 +2,37 @@
 
 # Final Auto Script - Get All Watson x Orchestrate Items
 # This script automatically authenticates and retrieves all items
+# Credentials are loaded from .env file for security
 
-# ENV_NAME="watson-final-$(date +%H%M%S)"
-ENV_NAME="watson-test01"
-SERVICE_URL="https://api.dl.watson-orchestrate.ibm.com/instances/20250801-2128-2130-7051-371843188eea"
-API_KEY="azE6dXNyX2M3ODMyNzgyLWRiY2EtMzNjYS04ZjQwLTkyNTJmYzBlYWMwMTp3TkVabjkzU3V3RzB4bTcvUHF3M3FzN1grbTN3b2xMcWNnU0pBdXMyN0FnPTo2bUZM"
+# Load environment variables from .env file
+if [ -f .env ]; then
+    export $(cat .env | grep -v '^#' | xargs)
+else
+    echo "❌ Error: .env file not found!"
+    echo "Please create a .env file with your Watson x Orchestrate credentials:"
+    echo "ENV_NAME=your-environment-name"
+    echo "API_KEY=your-api-key"
+    echo "SERVICE_INSTANCE_URL=your-service-url"
+    exit 1
+fi
+
+# Use environment variables (with fallback for SERVICE_URL)
+SERVICE_URL="${SERVICE_INSTANCE_URL}"
+
+# Validate required environment variables
+if [ -z "$ENV_NAME" ] || [ -z "$API_KEY" ] || [ -z "$SERVICE_URL" ]; then
+    echo "❌ Error: Missing required environment variables!"
+    echo "Please ensure your .env file contains:"
+    echo "ENV_NAME=your-environment-name"
+    echo "API_KEY=your-api-key"
+    echo "SERVICE_INSTANCE_URL=your-service-url"
+    exit 1
+fi
 
 echo "🚀 Watson x Orchestrate - Auto Get All Items"
 echo "============================================="
 echo "Environment: $ENV_NAME"
+echo "🔐 Credentials loaded securely from .env file"
 echo ""
 
 # Create output directory
