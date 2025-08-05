@@ -1,0 +1,36 @@
+spec_version: v1
+kind: connection
+app_id: slack_member_connection
+name: slack_member_connection
+description: "Slack member connection - individual user OAuth for personal access"
+environments:
+  draft:
+    kind: oauth2
+    type: member
+    sso: false
+    server_url: "https://slack.com/api"
+    headers:
+      Content-Type: "application/json"
+      Accept: "application/json"
+      User-Agent: "Watson-x-Orchestrate/1.0"
+    auth:
+      type: oauth2
+      grant_type: authorization_code
+      client_id: "{{SLACK_CLIENT_ID}}"
+      client_secret: "{{SLACK_CLIENT_SECRET}}"
+      authorization_url: "https://slack.com/oauth/v2/authorize"
+      token_url: "https://slack.com/api/oauth.v2.access"
+      scope: "channels:read chat:write users:read files:write reactions:write"
+      redirect_uri: "{{SLACK_REDIRECT_URI}}"
+    endpoints:
+      # Common Slack API endpoints for user actions
+      channels: "/conversations.list"
+      post_message: "/chat.postMessage"
+      users: "/users.list"
+      user_info: "/users.info"
+      channel_info: "/conversations.info"
+      channel_history: "/conversations.history"
+      files_upload: "/files.upload"
+      reactions_add: "/reactions.add"
+      user_profile: "/users.profile.get"
+      dm_open: "/conversations.open"

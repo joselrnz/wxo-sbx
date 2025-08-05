@@ -1,0 +1,55 @@
+spec_version: v1
+kind: openapi
+name: slack_post_message
+description: "Post messages to Slack channels"
+connection: slack_team_connection
+openapi_spec: |
+  openapi: 3.0.0
+  info:
+    title: Slack Post Message API
+    version: 1.0.0
+  servers:
+    - url: https://slack.com/api
+  paths:
+    /chat.postMessage:
+      post:
+        summary: Post a message to a Slack channel
+        operationId: postMessage
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  channel:
+                    type: string
+                    description: "Channel ID or name (e.g., #general, C1234567890)"
+                  text:
+                    type: string
+                    description: "Message text"
+                  blocks:
+                    type: array
+                    description: "Rich message blocks (optional)"
+                    items:
+                      type: object
+                  thread_ts:
+                    type: string
+                    description: "Thread timestamp for replies (optional)"
+                required:
+                  - channel
+                  - text
+        responses:
+          '200':
+            description: Message posted successfully
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    ok:
+                      type: boolean
+                    ts:
+                      type: string
+                    message:
+                      type: object

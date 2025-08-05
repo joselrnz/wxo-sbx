@@ -1,0 +1,77 @@
+# Slack Access Control Configuration
+# This defines who can access Watson x Orchestrate from Slack
+
+access_control:
+  # Method 1: User Group (Recommended)
+  user_group:
+    enabled: true
+    group_name: "watson-users"
+    group_id: "S1234567890"  # Replace with actual group ID
+    description: "Users authorized to access Watson x Orchestrate"
+
+  # Method 2: Individual Users (Backup)
+  authorized_users:
+    enabled: true
+    users:
+      - user_id: "U1234567890"
+        name: "John Doe"
+        email: "john.doe@company.com"
+        role: "admin"
+      - user_id: "U0987654321"
+        name: "Sarah Smith"
+        email: "sarah.smith@company.com"
+        role: "user"
+      - user_id: "U1122334455"
+        name: "Mike Johnson"
+        email: "mike.johnson@company.com"
+        role: "user"
+
+  # Method 3: Channel Restrictions
+  authorized_channels:
+    enabled: false  # Set to true if you want channel-based access
+    channels:
+      - channel_id: "C1234567890"
+        name: "#watson-x-access"
+        description: "Private channel for Watson x access"
+
+  # Access Control Rules
+  rules:
+    # Require user to be in authorized list
+    require_user_authorization: true
+    
+    # Require specific channel (if enabled)
+    require_authorized_channel: false
+    
+    # Allow admins to bypass restrictions
+    admin_bypass: true
+    
+    # Rate limiting per user
+    rate_limit:
+      enabled: true
+      requests_per_minute: 10
+      requests_per_hour: 100
+
+  # Error Messages
+  messages:
+    access_denied: "🚫 Access denied. You don't have permission to use Watson x Orchestrate. Contact your admin for access."
+    channel_restricted: "🚫 Watson x commands are only allowed in authorized channels."
+    rate_limit_exceeded: "⏰ Rate limit exceeded. Please wait before making another request."
+
+# Logging and Monitoring
+logging:
+  log_access_attempts: true
+  log_denied_requests: true
+  log_successful_requests: true
+  
+# Admin Configuration
+admin:
+  # Users who can manage access control
+  admin_users:
+    - "U1234567890"  # John Doe
+  
+  # Admin commands
+  commands:
+    add_user: "/watson-admin add-user @username"
+    remove_user: "/watson-admin remove-user @username"
+    list_users: "/watson-admin list-users"
+    check_access: "/watson-admin check-access @username"

@@ -1,0 +1,28 @@
+spec_version: v1
+kind: connection
+app_id: slack_team_connection
+name: slack_team_connection
+description: "Slack team connection - shared bot token for all users"
+environments:
+  draft:
+    kind: bearer
+    type: team
+    sso: false
+    server_url: "https://slack.com/api"
+    headers:
+      Content-Type: "application/json"
+      Accept: "application/json"
+      User-Agent: "Watson-x-Orchestrate/1.0"
+    auth:
+      type: bearer
+      token: "{{SLACK_BOT_TOKEN}}"
+    endpoints:
+      # Common Slack API endpoints
+      channels: "/conversations.list"
+      post_message: "/chat.postMessage"
+      users: "/users.list"
+      user_info: "/users.info"
+      channel_info: "/conversations.info"
+      channel_history: "/conversations.history"
+      files_upload: "/files.upload"
+      reactions_add: "/reactions.add"
