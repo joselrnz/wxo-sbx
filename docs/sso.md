@@ -1,150 +1,141 @@
-# SSO with Okta for IBM watsonx Orchestrate (AWS SaaS)
+HIGH-LEVEL STRUCTURE (7 Main Parent Pages)
 
-A concise, end-to-end plan to enable Single Sign-On (SSO) with **Okta** for the **IBM-managed AWS** version of watsonx Orchestrate.
+IBM watsonx Orchestrate - Application Team Guidance
+IBM watsonx Orchestrate - Audit / Risk Information
+IBM watsonx Orchestrate - General Information
+IBM watsonx Orchestrate - Connections and Integrations
+IBM watsonx Orchestrate - Platform Administration
+IBM watsonx Orchestrate - Security
+IBM watsonx Orchestrate - Support and Analytics
 
----
 
-# 0) What IBM Needs to Turn SSO On
+DETAILED WIKI HIERARCHY
+PARENT PAGE 1: IBM watsonx Orchestrate - Application Team Guidance
+Child Pages:
 
-Open an IBM Support ticket and include:
+IBM watsonx Orchestrate - App - Discovering the Catalog
+IBM watsonx Orchestrate - App - Using Agents in the Chat
+IBM watsonx Orchestrate - App - Building Agents
+IBM watsonx Orchestrate - App - Building Tools
+IBM watsonx Orchestrate - App - Agent Builder Overview
+IBM watsonx Orchestrate - App - Agent Catalog Exploration
+IBM watsonx Orchestrate - App - Agent Development Kit (ADK) Setup
+IBM watsonx Orchestrate - App - AI Assistant Builder
+IBM watsonx Orchestrate - App - Chat Interface Usage
+IBM watsonx Orchestrate - App - Creating Custom Agents
+IBM watsonx Orchestrate - App - Draft vs Live Environment
+IBM watsonx Orchestrate - App - Flow Tools Development
+IBM watsonx Orchestrate - App - Knowledge Base Integration
+IBM watsonx Orchestrate - App - Multi-Agent Orchestration
+IBM watsonx Orchestrate - App - Providing Agent Feedback
+IBM watsonx Orchestrate - App - Skill-Based Experience
+IBM watsonx Orchestrate - App - Team Collaboration Guidelines
+IBM watsonx Orchestrate - App - User Training Materials
 
-* Your **contact info** (name, email, phone, timezone)
-* **Tenant CRN** and **Tenant ID**
-* Chosen protocol: **OIDC** (recommended) or **SAML**
-* If **OIDC**: **Issuer / Well-Known endpoint**, **Client ID**, **Client Secret**
-* If **SAML**: **IdP metadata XML**
 
-**Where to find tenant identifiers in Orchestrate**
+PARENT PAGE 2: IBM watsonx Orchestrate - Audit / Risk Information
+Child Pages:
 
-* **Tenant ID**: Profile → **Settings** → **API details** → in the Service instance URL (`/instances/<tenant_id>`)
-* **CRN**: Profile → **About** → copy the **crn**
+IBM watsonx Orchestrate - Audit - Compliance Framework
+IBM watsonx Orchestrate - Audit - Risk Assessment Procedures
+IBM watsonx Orchestrate - Audit - Security Audit Requirements
+IBM watsonx Orchestrate - Audit - Data Governance
+IBM watsonx Orchestrate - Audit - Regulatory Compliance
+IBM watsonx Orchestrate - Audit - Risk Management Framework
+IBM watsonx Orchestrate - Audit - Internal Controls
+IBM watsonx Orchestrate - Audit - External Audit Support
+IBM watsonx Orchestrate - Audit - Risk Mitigation Strategies
+IBM watsonx Orchestrate - Audit - Compliance Reporting
+IBM watsonx Orchestrate - Audit - Audit Trail Documentation
+IBM watsonx Orchestrate - Audit - Risk Register Management
 
----
 
-# 1) Okta (OIDC) — Create the App Integration
+PARENT PAGE 3: IBM watsonx Orchestrate - General Information
+Child Pages:
 
-In Okta Admin: **Applications → Create App Integration → OIDC – Web**
+IBM watsonx Orchestrate - General - Platform Overview
+IBM watsonx Orchestrate - General - Architecture Overview
+IBM watsonx Orchestrate - General - Feature Comparison
+IBM watsonx Orchestrate - General - Deployment Models
+IBM watsonx Orchestrate - General - SaaS vs On-Premises
+IBM watsonx Orchestrate - General - Integration Capabilities
+IBM watsonx Orchestrate - General - Use Cases and Examples
+IBM watsonx Orchestrate - General - Business Value Proposition
+IBM watsonx Orchestrate - General - Implementation Timeline
+IBM watsonx Orchestrate - General - Best Practices
+IBM watsonx Orchestrate - General - Terminology and Glossary
+IBM watsonx Orchestrate - General - Frequently Asked Questions
 
-* **Grant type**: Authorization Code (PKCE is fine)
-* **Redirect URIs**: add the **sign-in** and **sign-out** URIs provided by IBM during the SSO registration call
-  *(You can create the app now and paste these URIs later.)*
-* **Scopes**: `openid`, `profile`, `email`
-* **Assignments**: assign only the users/groups who should access **this specific tenant** (create one Okta app **per tenant**: DEV/TEST/PROD, or per BU if you split tenants)
 
-**Save these values to share with IBM**
+PARENT PAGE 4: IBM watsonx Orchestrate - Connections and Integrations
+Child Pages:
 
-* **Issuer / Authorization server** (e.g., `https://<your-org>.okta.com/oauth2/default` or your custom AS)
-* **Well-Known URL** (e.g., `https://<your-org>.okta.com/.well-known/openid-configuration` or custom AS equivalent)
-* **Client ID**
-* **Client Secret**
+IBM watsonx Orchestrate - Connections - Managing Connections
+IBM watsonx Orchestrate - Connections - Connection Configuration
+IBM watsonx Orchestrate - Connections - SSO Authentication Setup
+IBM watsonx Orchestrate - Connections - Draft vs Live Environment
+IBM watsonx Orchestrate - Connections - Supported Applications
+IBM watsonx Orchestrate - Connections - Microsoft Applications
+IBM watsonx Orchestrate - Connections - Salesforce Integration
+IBM watsonx Orchestrate - Connections - SAP Integration
+IBM watsonx Orchestrate - Connections - ServiceNow Integration
+IBM watsonx Orchestrate - Connections - Workday Integration
+IBM watsonx Orchestrate - Connections - 100+ Enterprise Apps
+IBM watsonx Orchestrate - Connections - Connection Testing
+IBM watsonx Orchestrate - Connections - SSO OAuth Flows
+IBM watsonx Orchestrate - Connections - Third-Party Integrations
 
-> **Tip:** If you use a **custom authorization server**, the Issuer and Well-Known URL will reference that server path (not `/default`).
 
----
+PARENT PAGE 5: IBM watsonx Orchestrate - Platform Administration
+Child Pages:
 
-# 2) Open the IBM Support Ticket
+IBM watsonx Orchestrate - Admin - Administering Your Instance
+IBM watsonx Orchestrate - Admin - Tenant Administration
+IBM watsonx Orchestrate - Admin - User Management
+IBM watsonx Orchestrate - Admin - Environment Management (Draft/Live)
+IBM watsonx Orchestrate - Admin - License Management
+IBM watsonx Orchestrate - Admin - Resource Unit Tracking
+IBM watsonx Orchestrate - Admin - Feature Flag Management
+IBM watsonx Orchestrate - Admin - Instance Settings
+IBM watsonx Orchestrate - Admin - SaaS on AWS Management
+IBM watsonx Orchestrate - Admin - Cost Management
+IBM watsonx Orchestrate - Admin - Global Platform Settings
+IBM watsonx Orchestrate - Admin - Role Assignments
+IBM watsonx Orchestrate - Admin - User Access Provisioning
+IBM watsonx Orchestrate - Admin - Joiner/Mover/Leaver Processes
 
-**Subject**: Enable SSO for watsonx Orchestrate (AWS SaaS) – `<your_company_domain>`
 
-Include:
+PARENT PAGE 6: IBM watsonx Orchestrate - Security
+Child Pages:
 
-* Contact info
-* **Tenant CRN** and **Tenant ID**
-* Protocol (**OIDC** or **SAML**)
-* If **OIDC**: Issuer, Well-Known URL, Client ID, Client Secret
-* If **SAML**: IdP Metadata XML
+IBM watsonx Orchestrate - Security - Securing Your Instance
+IBM watsonx Orchestrate - Security - Single Sign-On (SSO) Configuration
+IBM watsonx Orchestrate - Security - SSO Identity Provider Integration
+IBM watsonx Orchestrate - Security - Microsoft Entra ID SSO Setup
+IBM watsonx Orchestrate - Security - OAuth 2.0 Token Exchange (SSO)
+IBM watsonx Orchestrate - Security - JWT Token Management (SSO)
+IBM watsonx Orchestrate - Security - Role-Based Access Control
+IBM watsonx Orchestrate - Security - AWS Security Integration
+IBM watsonx Orchestrate - Security - Data Protection
+IBM watsonx Orchestrate - Security - Compliance Requirements
+IBM watsonx Orchestrate - Security - Audit Trail Management
+IBM watsonx Orchestrate - Security - Risk Management
+IBM watsonx Orchestrate - Security - Security Incident Response
+IBM watsonx Orchestrate - Security - Service Account Management (SSO)
 
-**Template (copy/paste):**
 
-```text
-Subject: Enable SSO for watsonx Orchestrate (AWS SaaS) – <your_company_domain>
+PARENT PAGE 7: IBM watsonx Orchestrate - Support and Analytics
+Child Pages:
 
-Contacts:
-- Name: <name>
-- Email: <email>
-- Phone: <phone>
-- Timezone/Availability: <tz and hours>
-
-Tenant:
-- CRN: <paste CRN>
-- Tenant ID: <paste tenant_id>
-
-Protocol: OIDC | SAML
-
-OIDC (if chosen):
-- Issuer / Auth Server: <https://.../oauth2/...>
-- Well-Known: <https://.../.well-known/openid-configuration>
-- Client ID: <id>
-- Client Secret: <secret>
-
-SAML (if chosen):
-- IdP Metadata XML attached
-
-Notes:
-- Please register our domain for SSO and provide final redirect URIs to add in Okta.
-```
-
----
-
-# 3) Test SSO
-
-1. Go to the Orchestrate login page → click **Log in with SSO**
-2. Enter your **company domain** → you should be redirected to **Okta**
-3. Authenticate → you’re redirected back to Orchestrate’s landing page
-
-> **Multiple tenants?** Use **Help → Switch account** (`/landing/accounts`). Close other WXO tabs first; switching works best with a single active tab.
-
----
-
-# 4) Control Who Gets Into Which Tenant
-
-* Keep **one Okta OIDC app per tenant** (`wxo-dev`, `wxo-test`, `wxo-prod`, etc.)
-* In Okta, assign the app only to the **right groups/users** for that tenant
-* After users first sign in, set their **Orchestrate role** under **Manage → Users**:
-
-  * **Admin** – manage members & build
-  * **Builder** – build agents/tools
-  * **User** – run/use agents
-
-*(There are no native “groups” inside a tenant; access is **Team membership + Role**.)*
-
----
-
-# 5) (Optional) SAML Path
-
-If your security team prefers SAML:
-
-1. Create an **Okta SAML 2.0** app
-2. Download the **IdP Metadata XML**
-3. Provide it to IBM (with Tenant CRN/ID) in the ticket
-4. IBM completes SAML registration; then test like in step 3
-
----
-
-# Appendix A — Pre-Ticket Checklist
-
-* [ ] Tenant **CRN** (Profile → About)
-* [ ] **Tenant ID** (Profile → Settings → API details)
-* [ ] Protocol decided: **OIDC** (preferred) or **SAML**
-* **If OIDC (from Okta):**
-
-  * [ ] **Issuer / Authorization server**
-  * [ ] **Well-Known URL**
-  * [ ] **Client ID**
-  * [ ] **Client Secret**
-* **If SAML (from Okta):**
-
-  * [ ] **IdP Metadata XML**
-
----
-
-# Appendix B — Okta App Settings (OIDC)
-
-* App type: **OIDC – Web**
-* Redirect URIs: **use the exact sign-in/sign-out URIs IBM provides**
-* Scopes: `openid`, `profile`, `email`
-* Assignments: only the groups/users for that tenant
-
----
-
-Need me to tailor this to your actual tenant names and Okta groups?
+IBM watsonx Orchestrate - Support - Getting Help and Support
+IBM watsonx Orchestrate - Support - SaaS Technical Support (8am-8pm ET)
+IBM watsonx Orchestrate - Support - Troubleshooting Knowledge Base
+IBM watsonx Orchestrate - Support - User Training Resources
+IBM watsonx Orchestrate - Support - FAQ Database
+IBM watsonx Orchestrate - Support - Community Forums
+IBM watsonx Orchestrate - Analytics - Monitoring Agent Analytics
+IBM watsonx Orchestrate - Analytics - Agent Performance Metrics
+IBM watsonx Orchestrate - Analytics - Usage Analytics and Reporting
+IBM watsonx Orchestrate - Analytics - Business Impact Measurement
+IBM watsonx Orchestrate - Analytics - Dashboard Configuration
+IBM watsonx Orchestrate - Analytics - User Interaction Tracking
