@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Load environment variables
+export $(cat .env | grep -v '^#' | xargs)
+
+# Activate Watson x Orchestrate environment
+orchestrate env activate "$ENV_NAME" --api-key "$API_KEY"
+
+# Deploy ServiceNow connection YAML
+orchestrate connections import -f connections/servicenow-dev-connection.yaml
+
+# Configure credentials
+orchestrate connections set-credentials -a servicenow_dev_connection --env draft --api-key "$SERVICENOW_API_KEY"
+orchestrate connections set-credentials -a servicenow_dev_connection --env live --api-key "$SERVICENOW_API_KEY"
+
+# Verify deployment
+orchestrate connections list | grep servicenow_dev_connection
