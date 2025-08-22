@@ -1,34 +1,32 @@
 spec_version: v1
 kind: connection
-app_id: salesforce_connection
-name: salesforce_connection
-description: "Salesforce API connection with OAuth 2.0 authentication"
+app_id: servicenow_dev_connection
+name: servicenow_dev_connection
+description: "ServiceNow Dev Account API connection with API key authentication"
 environments:
   draft:
-    connection_type: oauth2
-    base_url: "https://{{SALESFORCE_INSTANCE}}.salesforce.com"
+    connection_type: api_key_auth
+    base_url: "https://{{SERVICENOW_INSTANCE}}.service-now.com"
     preference: team
-    security_scheme: oauth2
+    security_scheme: api_key_auth
     auth:
-      type: oauth2
-      grant_type: authorization_code
-      client_id: "{{SALESFORCE_CLIENT_ID}}"
-      client_secret: "{{SALESFORCE_CLIENT_SECRET}}"
-      authorization_url: "https://{{SALESFORCE_INSTANCE}}.salesforce.com/services/oauth2/authorize"
-      token_url: "https://{{SALESFORCE_INSTANCE}}.salesforce.com/services/oauth2/token"
-      scope: "api refresh_token"
-      redirect_uri: "{{SALESFORCE_REDIRECT_URI}}"
+      type: api_key
+      api_key: "{{SERVICENOW_API_KEY}}"
+      api_key_header: "x-sn-apikey"
     headers:
       Content-Type: "application/json"
       Accept: "application/json"
       User-Agent: "Watson-x-Orchestrate/1.0"
-    endpoints:
-      # Common Salesforce REST API endpoints
-      accounts: "/services/data/v58.0/sobjects/Account"
-      contacts: "/services/data/v58.0/sobjects/Contact"
-      opportunities: "/services/data/v58.0/sobjects/Opportunity"
-      leads: "/services/data/v58.0/sobjects/Lead"
-      cases: "/services/data/v58.0/sobjects/Case"
-      query: "/services/data/v58.0/query"
-      search: "/services/data/v58.0/search"
-      describe: "/services/data/v58.0/sobjects"
+  live:
+    connection_type: api_key_auth
+    base_url: "https://{{SERVICENOW_INSTANCE}}.service-now.com"
+    preference: team
+    security_scheme: api_key_auth
+    auth:
+      type: api_key
+      api_key: "{{SERVICENOW_API_KEY}}"
+      api_key_header: "x-sn-apikey"
+    headers:
+      Content-Type: "application/json"
+      Accept: "application/json"
+      User-Agent: "Watson-x-Orchestrate/1.0"
